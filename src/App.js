@@ -1,27 +1,24 @@
 import React from 'react';
 import { createGlobalStyle } from 'styled-components';
-import TodoTemplate from './components/TodoTemplate';
-import TodoHead from './components/TodoHead';
-import TodoList from './components/TodoList';
-import TodoCreate from './components/TodoCreate';
-import { TodoProvider } from './TodoContext';
+import Time from './components/Time';
+import MemoList from './components/MemoList';
+import MemoCreate from './components/MemoCreate';
+import { MemoProvider } from './MemoContext';
 
 const GlobalStyle = createGlobalStyle`
   body{
-    background: #e9ecef;
+    background : orange;
   }
 `;
 
 function App() {
   return (
-    <TodoProvider>
-      <GlobalStyle/>
-      <TodoTemplate>
-        <TodoHead />
-        <TodoList />
-        <TodoCreate/>
-      </TodoTemplate>
-    </TodoProvider>
+    <MemoProvider>
+        <GlobalStyle/>
+        <Time/>
+        <MemoCreate/>
+        <MemoList/>
+    </MemoProvider>
   );
 }
 

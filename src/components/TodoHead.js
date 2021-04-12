@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { useTodoState } from '../TodoContext';
+import {useTodoState} from '../TodoContext';
 
 const TodoHeadBlock = styled.div`
     padding-top: 48px;
@@ -8,29 +8,29 @@ const TodoHeadBlock = styled.div`
     padding-right: 32px;
     padding-bottom: 24px;
 
-    border-bottom: 1px solid #c9ecef;
+    border-bottom: 1px solid black;
 
     h1{
         margin: 0;
         font-size: 36px;
-        color: #33a40;
+        color: red;
     }
-
+    
     .day{
         margin-top: 4px;
-        color: #868e96;
+        color: blue;
         font-size: 21px;
     }
 
-    .tasts-left{
-        color: #20c997;
+    .task-left{
+        color: green;
         font-size: 18px;
         margin-top: 40px;
         font-weight: bold;
     }
 `;
 
-function TodoHead() {
+function TodoHead(){
     const todos = useTodoState();
     const undoneTasks = todos.filter(todo => !todo.done);
 
@@ -40,15 +40,15 @@ function TodoHead() {
         month: 'long',
         day: 'numeric'
     });
-    const dayName = today.toLocaleDateString('ko-KR', { weekday: 'long' });
+    const dayName = today.toLocaleDateString('ko-KR', {weekday: 'long'});
 
-    return (
+    return(
         <TodoHeadBlock>
             <h1>{dateString}</h1>
             <div className="day">{dayName}</div>
-            <div className="tasks-left">할 일 {undoneTasks.length}개 남음</div>
+            <div className="task-left">할 일 {undoneTasks.length} 개 남음</div>
         </TodoHeadBlock>
-    )
+    );
 }
 
-export default TodoHead
+export default TodoHead;

@@ -1,19 +1,25 @@
-import React, { useReducer, createContext, useContext, useRef } from 'react';
+import React, {useReducer, createContext, useContext, useRef} from 'react';
 
-const initialTodos = [];
+const initialTodos = [
+    {
+        id: 1,
+        text: 'test',
+        done: true
+    }
+];
 
-function todoReducer(state, action) {
-    switch (action.type) {
+function TodoReducer(state, action) {
+    switch(action.type) {
         case 'CREATE':
             return state.concat(action.todo);
         case 'TOGGLE':
             return state.map(todo =>
-                todo.id === action.id ? { ...todo, done: !todo.done } : todo
-            );
+                    todo.id === action.id? { ...todo, done: !todo.done} : todo
+                );
         case 'REMOVE':
             return state.filter(todo => todo.id !== action.id);
         default:
-            throw new Error(`Unhandled action type : ${action.type}`);
+            throw new Error(`${action.type}`);
     }
 }
 
@@ -21,9 +27,9 @@ const TodoStateContext = createContext();
 const TodoDispatchContext = createContext();
 const TodoNextIdContext = createContext();
 
-export function TodoProvider({ children }) {
-    const [state, dispatch] = useReducer(todoReducer, initialTodos);
-    const nextId = useRef(1);
+export function TodoProvider({children}){
+    const [state, dispatch] = useReducer(TodoReducer, initialTodos);
+    const nextId = useRef(2);
 
     return (
         <TodoStateContext.Provider value={state}>
@@ -36,26 +42,26 @@ export function TodoProvider({ children }) {
     );
 }
 
-export function useTodoState() {
+export function useTodoState(){
     const context = useContext(TodoStateContext);
-    if (!context) {
-        throw new Error('Cannot find TodoProvider');
-    }   
-    return context;
-}
-
-export function useTodoDispatch() {
-    const context = useContext(TodoDispatchContext);
-    if (!context) {
-        throw new Error('Cannot find TodoProvider');
+    if(!context){
+        throw new Error('Cannot Find TodoProvider');
     }
     return context;
 }
 
-export function useTodoNextId() {
+export function useTodoDispatch(){
+    const context = useContext(TodoDispatchContext);
+    if(!context){
+        throw new Error('Cannot Find TodoProvider');
+    }
+    return context;
+}
+
+export function useTodoNextId(){
     const context = useContext(TodoNextIdContext);
-    if (!context) {
-        throw new Error('Cannot find TodoProvider');
+    if(!context){
+        throw new Error('Cannot Find TodoProvider');
     }
     return context;
 }
