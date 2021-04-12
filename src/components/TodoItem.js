@@ -11,7 +11,7 @@ const Remove = styled.div`
     font-size: 24px;
     cursor: pointer;
     &:hover{
-        color: red;
+        color: #FFC200;
     }
     display: none;
 `;
@@ -42,8 +42,8 @@ const CheckCircle = styled.div`
     ${props =>
         props.done &&
         css `
-            border: 1px solid green;
-            color: blue;
+            border: 1px solid #FFC200;
+            color: darkgray;
         `
     }
 `;
@@ -53,7 +53,7 @@ const Text = styled.div`
     font-size: 21px;
     color: black;
     ${props =>
-        props.done && css`color: blue`
+        props.done && css`color: black`
     }
 `;
 

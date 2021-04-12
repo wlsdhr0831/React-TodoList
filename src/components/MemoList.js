@@ -22,6 +22,9 @@ const MemoItemBlock = styled.div`
 
     display: flex;
     margin: 30px;
+    text-align: center;
+    padding: 50px;
+    line-height: 100px;
 `;
 
 const MemoPositionBlock = styled.div`
@@ -85,7 +88,7 @@ function MemoList({children}){
                         key={memo.id}
                         id={memo.id}
                         onClick={onClickMemo}
-                    >{memo.title} / {memo.id}</MemoItemBlock>
+                    >{memo.title} <br/> {memo.id}</MemoItemBlock>
                 ))}
             </MemoListBlock>
             {open && 

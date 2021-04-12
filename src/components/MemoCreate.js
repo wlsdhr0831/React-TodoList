@@ -38,12 +38,12 @@ const MemoListBlock = styled.div`
     overflow-y: auto;
 `;
 const MemoCreateBlock = styled.div`
-    background: green;
+    background: darkgray;
     &:hover {
-        background: red;
+        background: #F6D775;
     }
     &:active{
-        background: orange;
+        background: #FFC200;
     }
 
     cursor: pointer;
@@ -89,8 +89,8 @@ function MemoCreate(){
             </MemoCreateBlock>
             {open && 
                 <TodoDetail>
-                <MemoHeadBlock>asdf</MemoHeadBlock>
-                <MemoListBlock>dfs</MemoListBlock>
+                <MemoHeadBlock>메모 제목을 입력하세요</MemoHeadBlock>
+                <MemoListBlock>할 일을 입력하세요</MemoListBlock>
                 </TodoDetail>
             }
         </>

@@ -1,10 +1,19 @@
 import React from 'react';
+import styled from 'styled-components';
+
+
+const DateStyle = styled.div`
+	font-size: 2rem;
+	font-weight: 900;
+	text-align: center;
+    margin: 30px;
+`;
 
 function Time(){
     const today = new Date();
 
     return (
-        <p>0000년 00월 00일 00시 00분 00초</p>
+        <DateStyle>{today.toDateString()}</DateStyle>
     )
 }
 

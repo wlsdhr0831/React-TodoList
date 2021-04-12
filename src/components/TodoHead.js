@@ -13,17 +13,17 @@ const TodoHeadBlock = styled.div`
     h1{
         margin: 0;
         font-size: 36px;
-        color: red;
+        color: black;
     }
     
     .day{
         margin-top: 4px;
-        color: blue;
+        color: darkgray;
         font-size: 21px;
     }
 
     .task-left{
-        color: green;
+        color: gray;
         font-size: 18px;
         margin-top: 40px;
         font-weight: bold;

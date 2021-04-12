@@ -7,7 +7,7 @@ import { MemoProvider } from './MemoContext';
 
 const GlobalStyle = createGlobalStyle`
   body{
-    background : orange;
+    background : lightgray;
   }
 `;
 
